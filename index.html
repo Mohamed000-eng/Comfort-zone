@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمد & رحمة | ذكرى حبنا الأولى</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght=1,600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div id="welcome-screen" class="welcome-overlay">
+        <div class="welcome-box">
+            <span class="heart-pulse">❤️</span>
+            <h2 class="welcome-text">مرحباً بكِ يا رحمة..</h2>
+            <button class="start-btn" onclick="startEverything()">اضغطي هنا يا رورو ✨</button>
+        </div>
+    </div>
+
+    <audio id="bg-music" src="song.mp3" loop prefetch></audio>
+
+    <div class="background-glow"></div>
+
+    <div class="container main-content" id="main-site">
+        
+        <header class="hero-section">
+            <h2 class="couple-names">محمد و رحمة</h2>
+            <h1 class="main-title">عيد ذكرى حبنا الأول، يا روحي!</h1>
+            <p class="subtitle">٢١ يونيو ٢٠٢٥ — اليوم الذي اعترفنا فيه بحبنا</p>
+            <div class="gold-divider">
+                <span class="line"></span>
+                <span class="diamond">◆</span>
+                <span class="line"></span>
+            </div>
+        </header>
+
+        <section class="counter-section">
+            <p class="counter-title">لقد مر على أول اعتراف بحبنا...</p>
+            <div class="countdown-container" id="countdown">
+                <div class="time-box">
+                    <span class="time-num" id="months">00</span>
+                    <span class="time-label">شهور</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-num" id="days">00</span>
+                    <span class="time-label">أيام</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-num" id="hours">00</span>
+                    <span class="time-label">ساعات</span>
+                </div>
+                <div class="time-box">
+                    <span class="time-num" id="minutes">00</span>
+                    <span class="time-label">دقائق</span>
+                </div>
+                <div class="time-box highlight">
+                    <span class="time-num" id="seconds">00</span>
+                    <span class="time-label">ثواني</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cards-section">
+            <h3 class="section-title">أشياء أحبها فيكِ</h3>
+            <p class="section-desc">اضغطي على البطاقة لاكتشاف ما يجعلكِ مميزة بقلبي</p>
+            
+            <div class="cards-grid">
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">
+                            <span class="card-num">٠١</span>
+                            <div class="emoji">✨</div>
+                            <span class="click-reveal">اضغطي للكشف</span>
+                        </div>
+                        <div class="card-back">
+                            <h4>نوركِ</h4>
+                            <p>أنتِ تعيشين على اسمكِ، يا رحمة. في كل لحظة تمر عليا — أنتِ النور والرحمة والهدوء اللي دايماً بتمناه لقلبي.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">
+                            <span class="card-num">٠٢</span>
+                            <div class="emoji">😂</div>
+                            <span class="click-reveal">اضغطي للكشف</span>
+                        </div>
+                        <div class="card-back">
+                            <h4>ضحكتكِ</h4>
+                            <p>ضحكتكِ اللي بسمعها أو بحسها في كلامك قادرة تغير مودي في ثانية وتخلي الدنيا في عيني تضحك.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">
+                            <span class="card-num">٠٣</span>
+                            <div class="emoji">💪</div>
+                            <span class="click-reveal">اضغطي للكشف</span>
+                        </div>
+                        <div class="card-back">
+                            <h4>قوتكِ</h4>
+                            <p>فخور بيكي وبشخصيتك وجدعنتك وطريقة تفكيرك. أنتِ سندي وقوتي الحقيقية.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">
+                            <span class="card-num">٠٤</span>
+                            <div class="emoji">😁</div>
+                            <span class="click-reveal">اضغطي للكشف</span>
+                        </div>
+                        <div class="card-back">
+                            <h4>روحكِ البهية</h4>
+                            <p>كلامك معايا بيدي طاقة إيجابية وفرحة غريبة، روحك الطيبة هي أجمل حاجة ميزتك في عيني.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">
+                            <span class="card-num">٠٥</span>
+                            <div class="emoji">🧠</div>
+                            <span class="click-reveal">اضغطي للكشف</span>
+                        </div>
+                        <div class="card-back">
+                            <h4>فهمكِ ليا</h4>
+                            <p>بتفهميني من أقل كلمة، تفكيرك وعقلك الكبير بيخلوني أعشق النقاش والحديث معاكي لساعات بدون أي ملل.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card" onclick="this.classList.toggle('flipped')">
+                    <div class="flip-card-inner">
+                        <div class="card-front">
+                            <span class="card-num">٠٦</span>
+                            <div class="emoji">🤗</div>
+                            <span class="click-reveal">اضغطي للكشف</span>
+                        </div>
+                        <div class="card-back">
+                            <h4>طيبتكِ</h4>
+                            <p>حنيتك وطيبة قلبك الكبيرة هما الأمان الحقيقي ليا. اخترتك واخترت قلبك وهفضل اختاره كل يوم.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="letter-section">
+            <div class="letter-box">
+                <div class="letter-header">
+                    <span class="envelope-emoji">💌</span>
+                    <span class="letter-date">٢١ يونيو ٢٠٢٦</span>
+                </div>
+                <div class="letter-body">
+                    <p class="salutation">عزيزتي رحمة،</p>
+                    <p class="letter-text">
+                        مرت سنة كاملة على اليوم اللي غير حياتي، اليوم اللي قلوبنا اعترفت فيه لبعض بكل صراحة. رغم إننا لسه بنبني طريقنا في صمت، ورغم إن حبنا لسه سر جميل ومخبى عن عيون العالم، إلا إنه أقوى وأجمل حاجة حصلت معايا.
+                    </p>
+                    <p class="letter-text">
+                        السنة دي كانت مليانة بتفاصيلنا الخاصة؛ الرسايل اللي بنستناها، الكلام اللي بنهون بيه على بعض، والأحلام الكبيرة اللي بنرسمها سوا للمستقبل. كل كلمة وكل ضحكة بيننا كانت بتبني جوايا يقين إنك الاختيار الصح والأجمل دايماً.
+                    </p>
+                    <p class="letter-text">
+                        مش محتاجين نكون روحنا في حتة عشان أحس بوجودك، لأنك عايشة جوايا وفي بالي طول الوقت. بحب تفاصيلنا البسيطة جداً، وبحب نفسي وأنا معاكي وبكلامي جنبك. أنا عايش على أمل اليوم اللي كل الناس تعرف فيه إنك بتاعتي.
+                    </p>
+                    <p class="signature">لكِ دايماً وبالكامل، <br><strong>محمد</strong></p>
+                </div>
+                <h2 class="arabic-calligraphy">أنتِ حياتي</h2>
+            </div>
+        </section>
+
+        <section class="promises-section">
+            <h3 class="section-title">وعودي لكِ</h3>
+            <ul class="promises-list">
+                <li><span>🔒</span> أعدكِ أن أحافظ على حبنا وسرنا، وأن تظلي دائماً الاختيار الأول والأهم في قلبي.</li>
+                <li><span>🤝</span> أعدكِ أن أكون سندكِ وملاذكِ الآمن في كل وقت تحتاجينني فيه.</li>
+                <li><span>❤️</span> أعدكِ أن أستمر في حبكِ والاهتمام بيكي وبأدق تفاصيلك كل يوم يمر علينا.</li>
+                <li><span>✨</span> أعدكِ أن أعافر وأبذل كل جهدي لنبني مستقبلنا الجميل ونحول أحلامنا السرية لحقيقة تجمعنا معاً أمام الجميع.</li>
+            </ul>
+        </section>
+
+        <footer class="main-footer">
+            <div class="qr-container">
+                <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 10px;">امسحي الكود لزيارة موقعنا السري:</p>
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=130x130&data=https://mohamed000-eng.github.io/Banoti/&color=e5c158&bgcolor=0b111e" alt="موقعنا السري" class="qr-image">
+            </div>
+            <span class="footer-diamond" style="display:block; margin-top: 20px;">💎</span>
+            <p style="margin-top: 10px;">تم التصميم بكل حب وتطوير بواسطة محمد © ٢٠٢٦</p>
+        </footer>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

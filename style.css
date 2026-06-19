@@ -1,0 +1,399 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #0b111e;
+    color: #e2e8f0;
+    font-family: 'Cairo', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* وهج نيون */
+.background-glow {
+    position: absolute;
+    width: 100%;
+    height: 600px;
+    background: radial-gradient(circle, rgba(229, 193, 88, 0.03) 0%, rgba(30, 58, 138, 0.05) 60%, transparent 100%);
+    top: 0;
+    left: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ضبط المقاس للموبايل بالمسطرة منعاً للمط والتكبير */
+.container {
+    width: 100%;
+    max-width: 480px; 
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* شاشة الافتتاح والموسيقى */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0b111e;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.welcome-box {
+    text-align: center;
+    padding: 20px;
+}
+
+.heart-pulse {
+    font-size: 3.5rem;
+    display: inline-block;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+.welcome-text {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin: 20px 0 25px 0;
+    font-weight: 400;
+}
+
+.start-btn {
+    background: transparent;
+    border: 2px solid #e5c158;
+    color: #e5c158;
+    padding: 10px 25px;
+    font-family: 'Cairo', sans-serif;
+    font-size: 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(229, 193, 88, 0.2);
+    transition: all 0.3s ease;
+}
+
+.welcome-overlay.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* جعل المحتوى الأساسي مخفي في البداية حتى يتم الضغط */
+.main-content {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+/* كلاس الإظهار الخاص بالجافا سكريبت */
+.main-content.show {
+    display: block;
+    opacity: 1;
+}
+
+/* الهيدر والعناوين */
+.hero-section {
+    text-align: center;
+    padding: 40px 0 20px 0;
+}
+
+.couple-names {
+    font-size: 1.5rem;
+    color: #e5c158;
+    margin-bottom: 8px;
+    font-weight: 300;
+}
+
+.main-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #94a3b8;
+}
+
+.gold-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.gold-divider .line {
+    width: 50px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e5c158, transparent);
+}
+
+.gold-divider .diamond {
+    color: #e5c158;
+    margin: 0 8px;
+    font-size: 0.7rem;
+}
+
+/* العداد */
+.counter-section {
+    text-align: center;
+    margin: 25px 0;
+    background: rgba(19, 28, 46, 0.6);
+    border: 1px solid rgba(229, 193, 88, 0.15);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.counter-title {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.countdown-container {
+    display: flex;
+    justify-content: space-between;
+    direction: ltr;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.time-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    color: #e5c158;
+    font-weight: bold;
+}
+
+.time-box.highlight .time-num {
+    color: #4ade80;
+    text-shadow: 0 0 5px rgba(74, 222, 128, 0.3);
+}
+
+.time-label {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 4px;
+}
+
+/* الكروت والتفاعل */
+.section-title {
+    font-size: 1.4rem;
+    color: #e5c158;
+    text-align: center;
+    margin-top: 35px;
+}
+
+.section-desc {
+    font-size: 0.85rem;
+    color: #64748b;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.flip-card {
+    background-color: transparent;
+    height: 150px;
+    perspective: 1000px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.5s;
+    transform-style: preserve-3d;
+}
+
+.flip-card.flipped .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front {
+    background-color: #131c2e;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.card-num {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 0.75rem;
+    color: #475569;
+}
+
+.emoji {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.click-reveal {
+    font-size: 0.75rem;
+    color: #e5c158;
+    background: rgba(229, 193, 88, 0.08);
+    padding: 3px 10px;
+    border-radius: 15px;
+}
+
+.card-back {
+    background: linear-gradient(135deg, #064e3b 0%, #111827 100%);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    transform: rotateY(180deg);
+}
+
+.card-back h4 {
+    color: #4ade80;
+    margin-bottom: 5px;
+    font-size: 0.95rem;
+}
+
+.card-back p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: #cbd5e1;
+}
+
+/* الرسالة */
+.letter-section {
+    margin: 35px 0;
+}
+
+.letter-box {
+    background-color: #131c2e;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.letter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.letter-date {
+    color: #e5c158;
+    font-size: 0.85rem;
+}
+
+.salutation {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.letter-text {
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: #cbd5e1;
+    margin-bottom: 12px;
+    text-align: justify;
+}
+
+.signature {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 0.85rem;
+}
+
+.signature strong {
+    color: #e5c158;
+    font-size: 1.1rem;
+}
+
+.arabic-calligraphy {
+    text-align: center;
+    font-size: 1.8rem;
+    color: #e5c158;
+    margin-top: 20px;
+}
+
+/* الوعود والفوتر */
+.promises-list {
+    list-style: none;
+    background-color: rgba(19, 28, 46, 0.4);
+    border-radius: 10px;
+    padding: 12px;
+}
+
+.promises-list li {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    color: #cbd5e1;
+    display: flex;
+}
+
+.promises-list li span {
+    margin-left: 8px;
+}
+
+.main-footer {
+    text-align: center;
+    padding: 30px 0;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    margin-top: 40px;
+}
+
+.qr-container {
+    margin: 10px auto;
+    padding: 12px;
+    background: rgba(19, 28, 46, 0.5);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.qr-image {
+    border: 1px solid rgba(229, 193, 88, 0.2);
+    border-radius: 6px;
+    background: #0b111e;
+}
+
+.main-footer p {
+    font-size: 0.75rem;
+    color: #475569;
+}
