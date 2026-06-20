@@ -51,6 +51,13 @@ function updateCounter() {
         years--;
     }
 
+    // تكة الأمان: لو وصلنا ليوم 21 يونيو أو بعده، نضمن السنين تتقفل صح وتصفر الباقي
+    if (now.getMonth() === startDate.getMonth() && now.getDate() === startDate.getDate()) {
+        years = now.getFullYear() - startDate.getFullYear();
+        months = 0;
+        days = 0;
+    }
+
     // عرض الأرقام الـ 6 كاملة في الـ HTML
     if (document.getElementById("years")) {
         document.getElementById("years").innerText = years.toString().padStart(2, '0');
