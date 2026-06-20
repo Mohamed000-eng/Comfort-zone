@@ -88,14 +88,15 @@ body {
     visibility: hidden;
 }
 
-/* إخفاء إجباري للمحتوى الأساسي في البداية */
+/* 🎯 محتوى الموقع الأساسي يبدأ مخفي ومستعد للجافا سكريبت بدون تعليق */
 .main-content {
-    display: none !important;
+    display: none;
     opacity: 0;
+    transition: opacity 0.8s ease;
 }
 
 .main-content.show {
-    display: block !important;
+    display: block;
     opacity: 1;
 }
 
@@ -142,7 +143,7 @@ body {
     font-size: 0.7rem;
 }
 
-/* 🎯 الحل النهائي لترتيب الـ 6 خانات بالمسطرة ومنع التداخل */
+/* 🎯 تنسيق الـ 6 خانات المحمي من التداخل وضغط الشاشات */
 .counter-section {
     text-align: center;
     margin: 25px 0;
