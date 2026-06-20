@@ -4,14 +4,20 @@ const startDate = new Date("June 21, 2025 00:00:00");
 function startEverything() {
     const music = document.getElementById("bg-music");
     
+    // تشغيل المزيكا
     music.play().catch(function(error) {
         console.log("المتصفح يطلب تفاعل أولاً:", error);
     });
 
+    // إخفاء الشاشة الافتتاحية الزرقاء
     document.getElementById("welcome-screen").classList.add("fade-out");
 
+    // إجبار محتوى الموقع على الظهور والنقل صراحة لحل المشكلة السابقة
     const mainSite = document.getElementById("main-site");
-    mainSite.classList.add("show");
+    mainSite.style.display = "block"; 
+    setTimeout(() => {
+        mainSite.classList.add("show");
+    }, 10);
 }
 
 function updateCounter() {
@@ -39,7 +45,7 @@ function updateCounter() {
         days--;
     }
 
-    // تصحيح الأيام والشهور
+    // تصحيح الأيام والشهور بالسالب
     if (days < 0) {
         const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0).getDate();
         days += prevMonth;
@@ -51,14 +57,14 @@ function updateCounter() {
         years--;
     }
 
-    // تكة الأمان: لو وصلنا ليوم 21 يونيو أو بعده، نضمن السنين تتقفل صح وتصفر الباقي
+    // تكة الأمان التلقائية: لضمان التقفيل الفلكي طالما وصلنا لليوم الموعود ٢١ يونيو
     if (now.getMonth() === startDate.getMonth() && now.getDate() === startDate.getDate()) {
         years = now.getFullYear() - startDate.getFullYear();
         months = 0;
         days = 0;
     }
 
-    // عرض الأرقام الـ 6 كاملة في الـ HTML
+    // عرض الأرقام الـ 6 كاملة في الـ HTML بالترتيب والبدء بـ 0 لو خانة مفردة
     if (document.getElementById("years")) {
         document.getElementById("years").innerText = years.toString().padStart(2, '0');
         document.getElementById("months").innerText = months.toString().padStart(2, '0');
@@ -69,5 +75,6 @@ function updateCounter() {
     }
 }
 
+// تشغيل العداد وتحديثه فوراً كل ثانية
 updateCounter();
 setInterval(updateCounter, 1000);
