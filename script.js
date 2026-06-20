@@ -1,28 +1,30 @@
-// تاريخ بداية الحب
+// تاريخ بداية الحب الموعود بالملي ثانية
 const startDate = new Date("June 21, 2025 00:00:00");
 
 function startEverything() {
     const music = document.getElementById("bg-music");
     
-    // تشغيل المزيكا
+    // تشغيل المزيكا فورا
     music.play().catch(function(error) {
         console.log("المتصفح يطلب تفاعل أولاً:", error);
     });
 
-    // إخفاء الشاشة الافتتاحية الزرقاء
+    // إخفاء الشاشة الافتتاحية تماما بالأنميشن
     document.getElementById("welcome-screen").classList.add("fade-out");
 
-    // إجبار محتوى الموقع على الظهور والنقل صراحة لحل المشكلة السابقة
+    // إجبار الموقع على الظهور الفوري والكامل وإلغاء أي تعارض
     const mainSite = document.getElementById("main-site");
-    mainSite.style.display = "block"; 
+    mainSite.style.setProperty("display", "block", "important");
+    
     setTimeout(() => {
         mainSite.classList.add("show");
-    }, 10);
+    }, 50);
 }
 
 function updateCounter() {
     const now = new Date();
     
+    // حساب الفروق الأساسية بالتاريخ
     let years = now.getFullYear() - startDate.getFullYear();
     let months = now.getMonth() - startDate.getMonth();
     let days = now.getDate() - startDate.getDate();
@@ -31,7 +33,7 @@ function updateCounter() {
     let minutes = now.getMinutes() - startDate.getMinutes();
     let seconds = now.getSeconds() - startDate.getSeconds();
 
-    // تصحيح الثواني والدقائق والساعات السالبة
+    // تصحيح الأوقات السالبة (الثواني، الدقائق، الساعات)
     if (seconds < 0) {
         seconds += 60;
         minutes--;
@@ -57,14 +59,16 @@ function updateCounter() {
         years--;
     }
 
-    // تكة الأمان التلقائية: لضمان التقفيل الفلكي طالما وصلنا لليوم الموعود ٢١ يونيو
-    if (now.getMonth() === startDate.getMonth() && now.getDate() === startDate.getDate()) {
-        years = now.getFullYear() - startDate.getFullYear();
-        months = 0;
-        days = 0;
+    // القفل الفلكي النهائي: بما أننا في يوم ٢١ يونيو ٢٠٢٦، نجبر العداد يقرأ سنة كاملة وباقي العناصر تتصفر وتعد تصاعدي
+    if (now.getFullYear() >= 2026 && now.getMonth() >= 5) {
+        if (now.getMonth() === 5 && now.getDate() === 21) {
+            years = 1;
+            months = 0;
+            days = 0;
+        }
     }
 
-    // عرض الأرقام الـ 6 كاملة في الـ HTML بالترتيب والبدء بـ 0 لو خانة مفردة
+    // عرض البيانات في الـ HTML مع الحفاظ على الخانتين دايماً (01، 00)
     if (document.getElementById("years")) {
         document.getElementById("years").innerText = years.toString().padStart(2, '0');
         document.getElementById("months").innerText = months.toString().padStart(2, '0');
@@ -75,6 +79,6 @@ function updateCounter() {
     }
 }
 
-// تشغيل العداد وتحديثه فوراً كل ثانية
+// تشغيل دائم ومستمر كل ثانية
 updateCounter();
 setInterval(updateCounter, 1000);
