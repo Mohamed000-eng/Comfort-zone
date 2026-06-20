@@ -12,7 +12,6 @@ body {
     position: relative;
 }
 
-/* وهج نيون */
 .background-glow {
     position: absolute;
     width: 100%;
@@ -24,7 +23,6 @@ body {
     pointer-events: none;
 }
 
-/* ضبط المقاس للموبايل بالمسطرة منعاً للمط والتكبير */
 .container {
     width: 100%;
     max-width: 480px; 
@@ -34,7 +32,7 @@ body {
     z-index: 1;
 }
 
-/* شاشة الافتتاح والموسيقى */
+/* شاشة الافتتاح */
 .welcome-overlay {
     position: fixed;
     top: 0;
@@ -70,7 +68,6 @@ body {
     font-size: 1.4rem;
     color: #ffffff;
     margin: 20px 0 25px 0;
-    font-weight: 400;
 }
 
 .start-btn {
@@ -91,20 +88,18 @@ body {
     visibility: hidden;
 }
 
-/* جعل المحتوى الأساسي مخفي في البداية حتى يتم الضغط */
+/* إخفاء إجباري للمحتوى الأساسي في البداية */
 .main-content {
-    display: none;
+    display: none !important;
     opacity: 0;
-    transition: opacity 0.8s ease;
 }
 
-/* كلاس الإظهار الخاص بالجافا سكريبت */
 .main-content.show {
-    display: block;
+    display: block !important;
     opacity: 1;
 }
 
-/* الهيدر والعناوين */
+/* التنسيقات */
 .hero-section {
     text-align: center;
     padding: 40px 0 20px 0;
@@ -114,13 +109,11 @@ body {
     font-size: 1.5rem;
     color: #e5c158;
     margin-bottom: 8px;
-    font-weight: 300;
 }
 
 .main-title {
     font-size: 1.8rem;
     font-weight: 700;
-    line-height: 1.4;
     color: #ffffff;
     margin-bottom: 10px;
 }
@@ -149,26 +142,21 @@ body {
     font-size: 0.7rem;
 }
 
-/* العداد */
+/* العداد المطور الـ 6 خانات ملمومين في شاشة الموبايل */
 .counter-section {
     text-align: center;
     margin: 25px 0;
     background: rgba(19, 28, 46, 0.6);
     border: 1px solid rgba(229, 193, 88, 0.15);
     border-radius: 12px;
-    padding: 15px;
-}
-
-.counter-title {
-    color: #94a3b8;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+    padding: 12px 6px;
 }
 
 .countdown-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     direction: ltr;
+    gap: 4px;
 }
 
 .time-box {
@@ -176,27 +164,27 @@ body {
     flex-direction: column;
     align-items: center;
     flex: 1;
+    min-width: 0;
 }
 
 .time-num {
     font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
+    font-size: 1.15rem;
     color: #e5c158;
     font-weight: bold;
 }
 
 .time-box.highlight .time-num {
     color: #4ade80;
-    text-shadow: 0 0 5px rgba(74, 222, 128, 0.3);
 }
 
 .time-label {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     color: #64748b;
     margin-top: 4px;
+    white-space: nowrap;
 }
 
-/* الكروت والتفاعل */
 .section-title {
     font-size: 1.4rem;
     color: #e5c158;
@@ -240,7 +228,6 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 10px;
     padding: 10px;
@@ -294,7 +281,6 @@ body {
     color: #cbd5e1;
 }
 
-/* الرسالة */
 .letter-section {
     margin: 35px 0;
 }
@@ -323,7 +309,6 @@ body {
 .salutation {
     font-weight: bold;
     margin-bottom: 10px;
-    font-size: 1rem;
 }
 
 .letter-text {
@@ -337,12 +322,10 @@ body {
 .signature {
     text-align: left;
     margin-top: 20px;
-    font-size: 0.85rem;
 }
 
 .signature strong {
     color: #e5c158;
-    font-size: 1.1rem;
 }
 
 .arabic-calligraphy {
@@ -352,7 +335,6 @@ body {
     margin-top: 20px;
 }
 
-/* الوعود والفوتر */
 .promises-list {
     list-style: none;
     background-color: rgba(19, 28, 46, 0.4);
@@ -372,28 +354,34 @@ body {
     margin-left: 8px;
 }
 
+/* الفوتر متظبط بالملي في السنتر */
 .main-footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 30px 0;
-    border-top: 1px solid rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
     margin-top: 40px;
 }
 
-.qr-container {
-    margin: 10px auto;
-    padding: 12px;
-    background: rgba(19, 28, 46, 0.5);
-    border-radius: 10px;
+.footer-center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-diamond {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
     display: inline-block;
 }
 
-.qr-image {
-    border: 1px solid rgba(229, 193, 88, 0.2);
-    border-radius: 6px;
-    background: #0b111e;
-}
-
-.main-footer p {
-    font-size: 0.75rem;
-    color: #475569;
+.footer-text {
+    font-size: 0.8rem;
+    color: #64748b;
+    margin: 0;
 }
