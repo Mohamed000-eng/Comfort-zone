@@ -32,7 +32,7 @@ body {
     z-index: 1;
 }
 
-/* شاشة الافتتاح */
+/* شاشة الافتتاح تلوح وتختفي تماماً بدقة */
 .welcome-overlay {
     position: fixed;
     top: 0;
@@ -44,7 +44,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.6s ease, visibility 0.6s ease;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
 .welcome-box {
@@ -86,21 +86,22 @@ body {
 .welcome-overlay.fade-out {
     opacity: 0;
     visibility: hidden;
+    pointer-events: none;
 }
 
-/* 🎯 محتوى الموقع الأساسي يبدأ مخفي ومستعد للجافا سكريبت بدون تعليق */
+/* محتوى الموقع الأساسي */
 .main-content {
     display: none;
     opacity: 0;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.5s ease;
 }
 
 .main-content.show {
-    display: block;
-    opacity: 1;
+    display: block !important;
+    opacity: 1 !important;
 }
 
-/* التنسيقات */
+/* التنسيقات العامة */
 .hero-section {
     text-align: center;
     padding: 40px 0 20px 0;
@@ -143,7 +144,7 @@ body {
     font-size: 0.7rem;
 }
 
-/* 🎯 تنسيق الـ 6 خانات المحمي من التداخل وضغط الشاشات */
+/* العداد التنازلي الـ 6 خانات المحمي من التداخل */
 .counter-section {
     text-align: center;
     margin: 25px 0;
@@ -157,7 +158,7 @@ body {
     display: flex;
     justify-content: space-between;
     direction: ltr;
-    gap: 2px;
+    gap: 4px;
 }
 
 .time-box {
@@ -168,13 +169,13 @@ body {
     flex: 1;
     min-width: 0;
     background: rgba(11, 17, 30, 0.4);
-    padding: 6px 2px;
+    padding: 8px 2px;
     border-radius: 6px;
 }
 
 .time-num {
     font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: #e5c158;
     font-weight: bold;
     line-height: 1.2;
@@ -189,7 +190,6 @@ body {
     font-size: 0.6rem;
     color: #64748b;
     white-space: nowrap;
-    letter-spacing: 0px;
 }
 
 .section-title {
